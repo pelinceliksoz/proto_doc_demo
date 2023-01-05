@@ -1,0 +1,18 @@
+syntax = "proto3";
+import "google/protobuf/empty.proto";
+option java_multiple_files = true;
+
+message CreateDocumentRequest {
+  int32 document_type_id = 1;
+  int32 template_version_number = 2;
+  string data_json = 3;
+}
+
+message CreateDocumentResponse {
+  string document_id = 1;
+  string document_url = 2;
+}
+
+service DemoService {
+  rpc CreateDocument(CreateDocumentRequest) returns (CreateDocumentResponse);
+}
